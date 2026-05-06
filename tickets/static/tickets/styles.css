@@ -1,0 +1,121 @@
+/* Estilos generales para la página */
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+h1, h4 {
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+h4 {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+div {
+    border: 2px solid #0000;
+    max-width: 400px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transform: translateY(0);
+    transition: all 0.3s ease;
+}
+
+h3 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 10px;
+}
+
+p {
+    color: #666;
+    font-size: 1rem;
+    margin: 10px 0;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+p:last-of-type {
+    border-bottom: none;
+    font-weight: bold;
+
+    font-size: 1.2rem;
+}
+
+button {
+    width: 100%;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #5a6fd8, #6a4190);
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.fecha-icon::before {
+content: '📅 ';
+margin-right: 8px;
+font-weight: bold;
+}
+
+.ubicacion-icon::before {
+    content: '💵';
+    margin-right: 8px;
+    font-weight: bold;
+}
+
+.precio-icon::before {
+    content: '📍 ';
+    margin-right: 8px;
+    font-weight: bold;
+}

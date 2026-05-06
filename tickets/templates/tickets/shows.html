@@ -1,0 +1,25 @@
+{% extends 'tickets/base.html' %}
+
+
+{% block title%}
+    Tickets Shows
+{% endblock %}
+
+{% block body %}
+    <h1>Tickets de Shows en vivo</h1>
+    <h4>Compra tu ticket</h4>
+    {% for ticket in tickets %}
+    <div>
+        <h3>{{ ticket.nombre }}</h3>
+        <p class="fecha-icon">{{ ticket.fecha }}</p>
+        <p class="ubicacion-icon">{{ ticket.ubicacion }}</p>
+        <p class="precio-icon">${{ ticket.precio }}</p>
+        <button>Comprar</button>
+    </div>
+    {% empty %}
+    <div>
+        <h3>No hay tickets disponibles</h3>
+        <p>Próximamente nuevos shows en vivo</p>
+    </div>
+    {% endfor %}
+{% endblock %}

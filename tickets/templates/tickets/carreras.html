@@ -1,0 +1,25 @@
+{% extends 'tickets/base.html' %}
+
+{% block title%}
+    Tickets Carreras
+{% endblock %}
+
+{% block body %}
+    <h1>Tickets de Carreras</h1>
+    <h4>Las mejores carreras aqui</h4>
+
+    {% for ticket in tickets %}
+    <div>
+        <h3>{{ ticket.nombre }}</h3>
+        <p class="fecha-icon">{{ ticket.fecha }}</p>
+        <p class="ubicacion-icon">{{ ticket.ubicacion }}</p>
+        <p class="precio-icon">${{ ticket.precio }}</p>
+        <button>Comprar</button>
+    </div>
+    {% empty %}
+    <div>
+        <h3>No hay tickets disponibles</h3>
+        <p>Próximamente nuevos eventos de carreras</p>
+    </div>
+    {% endfor %}
+{% endblock %}
