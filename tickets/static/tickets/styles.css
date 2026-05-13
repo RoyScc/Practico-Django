@@ -1,7 +1,7 @@
 /* Estilos generales para la página */
 body {
     font-family: 'Segoe UI', Tahoma, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #2d45b3 0%, #412161 100%);
     min-height: 100vh;
     margin: 0;
     padding: 20px;
@@ -9,6 +9,7 @@ body {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
+    flex: 1;
 }
 
 nav{
@@ -16,8 +17,11 @@ nav{
     justify-content: space-around;
     align-items: center;
     background: white;
+    opacity: 0.95;
+    margin: 0;
     padding: 10px 20px;
     border-radius: 10px;
+
 }
 
 h1, h4 {
@@ -37,16 +41,40 @@ h4 {
     opacity: 0.9;
 }
 
-div {
-    border: 2px solid #0000;
-    max-width: 400px;
+.cartelera {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 20px;
+}
+
+.ticket-item {
+    border: 2px solid #0000;
     background: white;
     border-radius: 15px;
-    padding: 30px;
+    padding: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     transform: translateY(0);
     transition: all 0.3s ease;
+}
+
+/* Responsive design para cartelera */
+@media (max-width: 768px) {
+    .cartelera {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cartelera {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 10px;
+    }
 }
 
 h3 {
@@ -96,6 +124,14 @@ button:hover {
     background: linear-gradient(45deg, #5a6fd8, #6a4190);
     transform: scale(1.05);
     box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.ticket {
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    space
 }
 
 button:active {
