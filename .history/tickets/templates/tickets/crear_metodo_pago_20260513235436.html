@@ -1,0 +1,22 @@
+{% extends 'tickets/base.html' %}
+
+{% block title %}Método de Pago{% endblock %}
+
+{% block body %}
+    <h1>Registrar / Editar Método de Pago</h1>
+    <div class="cartelera">
+    <form method="POST">
+        {% csrf_token %}
+        
+        {{ form.as_p }}
+        
+        <button type="submit" style="padding: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            Guardar Método
+        </button>
+        <a class="button a" href="{% url 'lista_metodos' %}">Volver</a>
+    </form>
+    </div>
+    <br>
+    
+
+{% endblock %}

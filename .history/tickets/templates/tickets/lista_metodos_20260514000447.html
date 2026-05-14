@@ -1,0 +1,21 @@
+{% extends 'tickets/base.html' %} {% block title%} Tickets Cine {% endblock %}
+{% block body %}
+
+<h1>Lista de metodos</h1>
+<div class="cartelera">
+{% for metodo in metodos %}
+  <div class="ticket-item" id="metodo-{{ metodo.id }}">
+    <h3 class="h3">{{ metodo.nombre }}</h3>
+    <h3 class="h3">{{ metodo.tipo }}</h3>
+
+    <button type="button" href="{% url 'editar_metodo' metodo.id %}">Editar</button>
+    <button type="button" href="{% url 'borrar_metodo' metodo.id %}">Borrar</button>
+  </div>
+  {% empty %}
+  <div class="ticket">
+    <h3>No hay metodos disponibles</h3>
+  </div>
+
+{% endfor %}
+</div>
+{% endblock %}

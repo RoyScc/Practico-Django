@@ -1,0 +1,24 @@
+{% extends 'tickets/base.html' %} {% block title%} Tickets Cine {% endblock %}
+{% block body %}
+
+<h1>Cartelera</h1>
+<h4>Las mejores peliculas las encuentras aqui</h4>
+
+{% for ticket in tickets %}
+<div class="cartelera">
+  <div class="ticket-item" id="ticket-{{ ticket.id }}">
+    <h3 class="h3">{{ ticket.nombre }}</h3>
+    <p class="fecha-icon pcartelera">{{ ticket.fecha }}</p>
+    <p class="ubicacion-icon pcartelera">{{ ticket.ubicacion }}</p>
+    <p class="precio-icon pcartelera">${{ ticket.precio }}</p>
+    <button>Comprar</button>
+  </div>
+  {% empty %}
+  <div class="ticket">
+    <h3>No hay tickets disponibles</h3>
+    <p>Próximamente nuevas películas</p>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}
