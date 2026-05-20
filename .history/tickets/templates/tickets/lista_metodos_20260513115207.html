@@ -2,20 +2,21 @@
 {% block body %}
 
 <h1>Lista de metodos</h1>
-<div class="cartelera">
+<a href="{% url 'crear_metodo_pago' %}">Crear metodo</a>
 {% for metodo in metodos %}
+<div class="cartelera">
   <div class="ticket-item" id="metodo-{{ metodo.id }}">
-    <h3 class="h3">{{ metodo.nombre }}</h3>
-    <h3 class="h3">{{ metodo.tipo }}</h3>
+    <h3>{{ metodo.nombre }}</h3>
+    <h3>{{ metodo.tipo }}</h3>
 
-    <a class="button" href="{% url 'editar_metodo' metodo.id %}">Editar</a>
-    <a class="button" href="{% url 'borrar_metodo' metodo.id %}">Borrar</a>
+    <a href="{% url 'editar_metodo' metodo.id %}">Editar</a>
+    <a href="{% url 'borrar_metodo' metodo.id %}">Borrar</a>
   </div>
   {% empty %}
   <div class="ticket">
     <h3>No hay metodos disponibles</h3>
   </div>
-
-{% endfor %}
 </div>
+{% endfor %}
+
 {% endblock %}

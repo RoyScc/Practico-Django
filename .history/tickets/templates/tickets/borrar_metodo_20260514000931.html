@@ -1,0 +1,23 @@
+{% extends 'tickets/base.html' %}
+
+{% block title %}Eliminar Método{% endblock %}
+
+{% block body %}
+<div class="cartelera">
+    <div class="ticket-item"> 
+        <h1>¿Estás seguro?</h1>
+    
+        <p>Estás a punto de eliminar el método de pago: <strong>{{ metodo.nombre }}</strong>.</p>
+        <p style="color: red;">Esta acción no se puede deshacer.</p>
+
+        <!-- Formulario de confirmación de borrado -->
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" style="padding: 10px; background-color: red; color: white; border: none; border-radius: 5px; cursor: pointer;">Sí, estoy seguro. Eliminar</button>
+            <a class="button" href="{% url 'lista_metodos' %}" style="margin-left: 15px; text-decoration: none;">Cancelar y volver a la lista</a>
+        </form>
+    </div>
+    
+</div>
+    
+{% endblock %}

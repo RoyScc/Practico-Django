@@ -45,7 +45,6 @@ a:hover {
     color: white;
 }
 
-
 h1, h4 {
     color: white;
     text-align: center;
@@ -64,10 +63,14 @@ h4 {
 }
 
 .cartelera {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, 320px);
+
+    gap: 30px;
+
     justify-content: center;
-    gap: 40px;
+
     padding: 30px;
 }
 .ticket-item {
@@ -87,22 +90,6 @@ h4 {
     transition: transform 0.3s ease;
 }
 
-.ticket-item2 {
-    background: white;
-    border-radius: 15px;
-    padding: 20px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    width: 320px;
-
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-
-    transition: transform 0.3s ease;
-}
-
 .ticket-item:hover {
     transform: translateY(-5px);
 }
@@ -110,12 +97,6 @@ h4 {
 .ticket-item a {
     display: inline-block;
     margin-top: 10px;
-}
-
-.form {
-    display: block;
-    margin-top: 0em;
-    unicode-bidi: isolate;
 }
 
 /* Tablet 
@@ -191,7 +172,7 @@ button {
     background: linear-gradient(45deg, #667eea, #764ba2);
     color: white;
     border: none;
-    padding: 20px 20px;
+    padding: 30px 30px;
     font-size: 1.1rem;
     font-weight: bold;
     border-radius: 8px;
@@ -207,30 +188,6 @@ button:hover {
     transform: scale(1.05);
     box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
 }
-
-.button {
-    width: 100%;
-    background: linear-gradient(45deg, #667eea, #764ba2);
-    color: white;
-    border: none;
-    padding: 20px 5px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    border-radius: 8px;
-    text-align: center;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.button:hover {
-    background: linear-gradient(45deg, #5a6fd8, #6a4190);
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-}
-
 
 .ticket {
     margin-bottom: 20px;

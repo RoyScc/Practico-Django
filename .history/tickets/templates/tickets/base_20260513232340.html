@@ -6,18 +6,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'tickets/styles.css' %}">
-    <link rel="icon" href="templates/tickets/images/cine.png" type="image/png">
     <title>{% block title %} Tickets {% endblock %}</title>
 </head>
 <body>
     <nav className="navbar2">
-        {% if request.resolver_match.url_name == 'cine' %}
-            <a href="{% url 'lista_metodos' %}">Metodos</a>
-        {% endif %}
+        <a href="{% url 'lista_metodos' %}">Metodos</a>
         <a href="{% url 'cine' %}">Cine</a>
-        {% if request.resolver_match.url_name == 'lista_metodos' %}
-            <a href="{% url 'crear_metodo_pago' %}">Crear método de pago</a>
-        {% endif %}
+        <a href="{% url 'crear_metodo_pago' %}">Crear método de pago</a>
     </nav>
 
     {% block body %}{% endblock %}
