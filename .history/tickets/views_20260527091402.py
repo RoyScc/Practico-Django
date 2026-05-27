@@ -61,6 +61,7 @@ def borrar_metodo(request, id):
     return render(request, 'tickets/borrar_metodo.html', {'metodo': metodo})
 
 #Registro de usuarios
+@login_required
 def register_view(request):
     if request.method == 'POST':
         form = RegistroForm(request.POST)
@@ -68,18 +69,18 @@ def register_view(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('cine')
+            return redirect('index')
 
     else:
         form = RegistroForm()
 
     return render(request, 'tickets/register.html', {
-        'form': form,
-        'hide_nav': True
+        'form': form
     })
 
 
 #Login de usuarios
+@login_required
 def login_view(request):
 
     if request.method == 'POST':
@@ -88,18 +89,18 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('cine')
+            return redirect('index')
 
     else:
         form = AuthenticationForm()
 
     return render(request, 'tickets/login.html', {
-        'form': form,
-        'hide_nav': True
+        'form': form
     })
 
 
 # LOGOUT
+@login_required
 def logout_view(request):
     logout(request)
     return redirect('login')

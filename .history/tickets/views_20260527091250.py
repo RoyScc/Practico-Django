@@ -12,17 +12,15 @@ from .forms import RegistroForm
 # def index(request):
 #     tickets = Tickets.objects.filter(tipo="cine")
 #     return render(request, 'tickets/index.html', {'tickets': tickets})
-@login_required
+
 def cine(request):
     tickets = Tickets.objects.filter(tipo__icontains="cine")
     return render(request, 'tickets/cine.html', {'tickets': tickets})
 
-@login_required
 def tickets(request):
     todos_los_tickets = Tickets.objects.all() 
     return render(request, 'tickets/todos_los_tickets.html', {'tickets': todos_los_tickets})
 
-@login_required
 def crear_metodo_pago(request):
     if request.method == 'POST':
         form = MetodoPagoForm(request.POST)
@@ -35,12 +33,10 @@ def crear_metodo_pago(request):
 
 from django.shortcuts import get_object_or_404
 
-@login_required
 def lista_metodos_pago(request):
     metodos = MetodoPago.objects.all()
     return render(request, 'tickets/lista_metodos.html', {'metodos': metodos})
 
-@login_required
 def editar_metodo(request, id):
     metodo = get_object_or_404(MetodoPago, id=id)
     if request.method == 'POST':
@@ -52,7 +48,6 @@ def editar_metodo(request, id):
         form = MetodoPagoForm(instance=metodo) 
     return render(request, 'tickets/crear_metodo_pago.html', {'form': form})
 
-@login_required
 def borrar_metodo(request, id):
     metodo = get_object_or_404(MetodoPago, id=id)
     if request.method == 'POST':
@@ -68,14 +63,13 @@ def register_view(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('cine')
+            return redirect('index')
 
     else:
         form = RegistroForm()
 
     return render(request, 'tickets/register.html', {
-        'form': form,
-        'hide_nav': True
+        'form': form
     })
 
 
@@ -88,14 +82,13 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('cine')
+            return redirect('index')
 
     else:
         form = AuthenticationForm()
 
     return render(request, 'tickets/login.html', {
-        'form': form,
-        'hide_nav': True
+        'form': form
     })
 
 

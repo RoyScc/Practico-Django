@@ -264,52 +264,17 @@ font-weight: bold;
 
 /* Estilos para la sección de Login y Register */
 .login-container {
-    width: 400px;
-    margin: 50px auto;
+    max-width: 400px;
+    margin: 40px auto;
+    background: white;
     padding: 30px;
     border-radius: 15px;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 .login-container h2 {
     text-align: center;
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 20px;
     color: #333;
-}
-
-/*----------------------*/
-.register-container {
-    width: 400px;
-    margin: 50px auto;
-    padding: 30px;
-    border-radius: 15px;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-.form-group input {
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
-    outline: none;
-    background-color: #aaaaaa;
-}
-
-.register-container button {
-    width: 100%;
-    margin-top: 10px;
 }
 
 /*

@@ -1,6 +1,7 @@
 from django import forms
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
+from .forms import RegistroForm
 from .models import MetodoPago
 
 from django.contrib.auth.forms import UserCreationForm

@@ -1,0 +1,40 @@
+{% extends 'tickets/base.html' %}
+
+{% block title %} Registro {% endblock %}
+
+{% block body %}
+
+<h1>Crear Cuenta</h1>
+<h4>Registrate para acceder al cine</h4>
+
+<div class="cartelera">
+
+    <div class="ticket-item">
+
+        <h3 class="h3">Registro</h3>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit">
+                Registrarse
+            </button>
+
+        </form>
+
+        <p class="pcartelera">
+            ¿Ya tienes cuenta?
+        </p>
+
+        <a href="{% url 'login' %}">
+            Iniciar sesión
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

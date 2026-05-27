@@ -68,14 +68,13 @@ def register_view(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('cine')
+            return redirect('index')
 
     else:
         form = RegistroForm()
 
     return render(request, 'tickets/register.html', {
-        'form': form,
-        'hide_nav': True
+        'form': form
     })
 
 
@@ -88,14 +87,13 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('cine')
+            return redirect('index')
 
     else:
         form = AuthenticationForm()
 
     return render(request, 'tickets/login.html', {
-        'form': form,
-        'hide_nav': True
+        'form': form
     })
 
 
