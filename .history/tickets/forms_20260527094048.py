@@ -1,6 +1,7 @@
 from django import forms
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
+from .forms import RegistroForm
 from .models import MetodoPago
 
 from django.contrib.auth.forms import UserCreationForm
@@ -26,7 +27,7 @@ def register_view(request):
 class RegistroForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ['username', 'password1', 'password2']
+        fields = ['username', 'email', 'password1', 'password2']
 
 class MetodoPagoForm(forms.ModelForm):
     class Meta:

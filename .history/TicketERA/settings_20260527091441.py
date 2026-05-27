@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-@1_@r@sd_e9*85^an*e=%ezs%udty4yv+g4b%ofb73^2q*_+d6
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+LOGIN_URL = '/login/'
 
 # Application definition
 
@@ -116,6 +116,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
-LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/cine/'
-LOGOUT_REDIRECT_URL = '/login/'
