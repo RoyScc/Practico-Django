@@ -25,6 +25,12 @@
             {{ form.password }}
         </div>
 
+        {% if form.errors %}
+            <div class="error">
+                {{ form.errors }}
+            </div>
+        {% endif %}
+        
         <button type="submit">
             Ingresar
         </button>

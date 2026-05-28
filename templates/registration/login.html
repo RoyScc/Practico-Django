@@ -1,0 +1,23 @@
+{% extends 'tickets/base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+    <h1>login</h1>
+    <div class="cartelera">
+        <div class="ticket-item2"> 
+           <form method="POST">
+            {% csrf_token %}
+            
+            {{ form.as_p }}
+                <button type="submit" style="padding: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                    Iniciar Sesión
+                </button>
+            </form>
+        </div>
+        
+    </div>
+    <br>
+    
+
+{% endblock %}
