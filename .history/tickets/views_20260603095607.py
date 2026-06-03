@@ -24,7 +24,7 @@ def tickets(request):
 @login_required
 def crear_metodo_pago(request):
     if request.method == 'POST':
-        form = MetodoPagoForm(request.POST, request.FILES)
+        form = MetodoPagoForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('lista_metodos')
@@ -43,7 +43,7 @@ def lista_metodos_pago(request):
 def editar_metodo(request, id):
     metodo = get_object_or_404(MetodoPago, id=id)
     if request.method == 'POST':
-        form = MetodoPagoForm(request.POST, request.FILES, instance=metodo)
+        form = MetodoPagoForm(request.POST, instance=metodo)
         if form.is_valid():
             form.save()
             return redirect('lista_metodos') 

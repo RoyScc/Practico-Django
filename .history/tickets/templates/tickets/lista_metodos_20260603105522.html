@@ -9,24 +9,24 @@
 
       <h3 style="color: black;">{{ metodo.nombre }}</h3>
 
-      <p style="color: black; text-align: flex;"><strong>Tipo:</strong> {{ metodo.get_tipo_display }}</p>
+      <p><strong>Tipo:</strong> {{ metodo.get_tipo_display }}</p>
 
       {% if metodo.tipo == 'EFECTIVO' %}
           <img src="{% static 'tickets/images/efectivo.svg' %}"
               alt="Efectivo"
-              width="80" style="margin-top: 10px; align-self: center;">
+              width="80">
       {% elif metodo.tipo == 'TRANSFERENCIA' %}
           <img src="{% static 'tickets/images/transferencia.svg' %}"
               alt="Transferencia"
-              width="80" style="margin-top: 10px; align-self: center;">
+              width="80">
       {% elif metodo.tipo == 'BANCO' %}
           <img src="{% static 'tickets/images/banco.svg' %}"
               alt="Banco"
-              width="80" style="margin-top: 10px; align-self: center;">
+              width="80">
       {% elif metodo.tipo == 'QR' %}
           <img src="{% static 'tickets/images/qr.svg' %}"
               alt="QR"
-              width="80" style="margin-top: 10px; align-self: center;">
+              width="80">
       {% endif %}
 
 

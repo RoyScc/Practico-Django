@@ -6,7 +6,7 @@
     <h1>Registrar / Editar Método de Pago</h1>
     <div class="cartelera">
         <div class="ticket-item2"> 
-           <form method="POST" enctype="multipart/form-data">
+           <form method="POST">
             {% csrf_token %}
             <p>
                 {{ form.nombre.label_tag }}

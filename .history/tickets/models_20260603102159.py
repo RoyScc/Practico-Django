@@ -32,7 +32,7 @@ class MetodoPago(models.Model):
         ('DEBITO', 'Débito'),
     ]
 
-    nombre = models.CharField(max_length=100)
+    #nombre = models.CharField(max_length=100)
 
     tipo = models.CharField(
         max_length=20,
