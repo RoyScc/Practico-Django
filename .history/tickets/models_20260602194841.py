@@ -14,10 +14,10 @@ class Tickets(models.Model):
         blank=True 
     )
 
-    imagen = models.ImageField(upload_to='images/', null=True, blank=True)
+    imagen = models.ImageField(upload_to='imagenes/', null=True, blank=True)
 
     def __str__(self):
-        return f"Película: {self.nombre}"
+        return f"Tickets de: {self.tipo}"
 
 class MetodoPago(models.Model):
     nombre = models.CharField(max_length=100)

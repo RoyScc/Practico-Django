@@ -17,10 +17,15 @@
 
     <!-- NAVBAR -->
     {% if not hide_nav %}
+        {% if user.is_authenticated %}
+            <p>Usuario: {{ user.username }}</p>
+        {% else %}
+            <p>NO LOGUEADO</p>
+        {% endif %}
     <nav class="navbar2">
 
         <!-- SIEMPRE visible -->
-         <a href="/admin/" target="_blank">
+         <a href="/admin/">
             Panel de administración 
         </a>
         <a href="{% url 'cine' %}">
