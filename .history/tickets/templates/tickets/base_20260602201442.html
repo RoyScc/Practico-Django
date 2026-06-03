@@ -20,7 +20,7 @@
     <nav class="navbar2">
 
         <!-- SIEMPRE visible -->
-         <a href="/admin/" target="_blank">
+         <a href="/admin/">
             Panel de administración 
         </a>
         <a href="{% url 'cine' %}">
@@ -36,13 +36,13 @@
                 </a>
             {% endif %}
             
-            {% if request.path != '/metodos/crear' %}
+            {% if request.path != '/crear-metodo/' %}
             <a href="{% url 'crear_metodo_pago' %}">
                 Crear método de pago
             </a>
             {% endif %}
 
-
+            
             <a href="{% url 'logout' %}">
                 Cerrar sesión
             </a>

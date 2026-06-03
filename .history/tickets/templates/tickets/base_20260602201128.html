@@ -20,9 +20,6 @@
     <nav class="navbar2">
 
         <!-- SIEMPRE visible -->
-         <a href="/admin/" target="_blank">
-            Panel de administración 
-        </a>
         <a href="{% url 'cine' %}">
             Cine
         </a>
@@ -30,19 +27,16 @@
         <!-- SOLO USUARIO LOGUEADO -->
         {% if user.is_authenticated %}
 
-            {% if request.path != '/metodos/' %}
-                <a href="{% url 'lista_metodos' %}">
-                    Métodos
-                </a>
-            {% endif %}
-            
-            {% if request.path != '/metodos/crear' %}
+            <a href="{% url 'lista_metodos' %}">
+                Métodos
+            </a>
+
             <a href="{% url 'crear_metodo_pago' %}">
                 Crear método de pago
             </a>
-            {% endif %}
-
-
+            <a href="/admin/">
+                Admin 
+            </a>
             <a href="{% url 'logout' %}">
                 Cerrar sesión
             </a>
