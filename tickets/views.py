@@ -9,11 +9,8 @@ from .models import Tickets, MetodoPago
 from .forms import MetodoPagoForm
 from .forms import RegistroForm
 
-# Create your views here.
 
-# def index(request):
-#     tickets = Tickets.objects.filter(tipo="cine")
-#     return render(request, 'tickets/index.html', {'tickets': tickets})
+@login_required
 def cine(request):
     tickets = Tickets.objects.filter(tipo__icontains="cine")
     return render(request, 'tickets/cine.html', {'tickets': tickets})
@@ -37,7 +34,6 @@ def crear_metodo_pago(request):
 from django.shortcuts import get_object_or_404
 
 @login_required
-
 def lista_metodos_pago(request):
     metodos = MetodoPago.objects.all()
     return render(request, 'tickets/lista_metodos.html', {'metodos': metodos})
@@ -62,23 +58,22 @@ def borrar_metodo(request, id):
         return redirect('lista_metodos')
     return render(request, 'tickets/borrar_metodo.html', {'metodo': metodo})
 
-#Registro de usuarios
+
 def register_view(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         form = RegistroForm(request.POST)
 
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('cine')
+            return redirect("cine")
 
-    # else:
-    
-        # form = RegistroForm()
+    else:
+        form = RegistroForm()
 
-    return render(request, 'tickets/register.html', {
-        'form': form,
-        'hide_nav': True
+    return render(request, "tickets/register.html", {
+        "form": form,
+        "hide_nav": True
     })
 
 
@@ -96,7 +91,7 @@ def login_view(request):
     else:
         form = AuthenticationForm()
 
-    return render(request, 'tickets/login.html', {
+    return render(request, 'registration/login.html', {
         'form': form,
         'hide_nav': True
     })

@@ -1,33 +1,14 @@
 from django import forms
-from django.shortcuts import render, redirect
-from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import get_user_model
 from .models import MetodoPago
 
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
+User = get_user_model()
 
-def register_view(request):
-
-    if request.method == "POST":
-        form = RegistroForm(request.POST)
-
-        if form.is_valid():
-            user = form.save()
-            login(request, user)
-            return redirect("index")
-
-    else:
-        form = RegistroForm()
-
-    return render(request, "tickets/register.html", {
-        "form": form,
-        "hide_nav": True
-    })
-    
 class RegistroForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ['username', 'password1', 'password2']
+        fields = ['username', 'telefono', 'preferencia_peliculas'] 
 
 class MetodoPagoForm(forms.ModelForm):
     class Meta:
