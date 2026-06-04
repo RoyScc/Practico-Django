@@ -1,12 +1,6 @@
-from django.shortcuts import get_object_or_404, render, redirect
-from django.contrib.auth.decorators import login_required
-
-from django.contrib.auth import login
-from django.contrib.auth.forms import UserCreationForm
-
+from django.shortcuts import render, redirect
 from .models import Tickets, MetodoPago
 from .forms import MetodoPagoForm
-<<<<<<< Updated upstream
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, logout
 from django.contrib.auth.forms import AuthenticationForm
@@ -18,12 +12,8 @@ from .forms import RegistroForm
 # def index(request):
 #     tickets = Tickets.objects.filter(tipo="cine")
 #     return render(request, 'tickets/index.html', {'tickets': tickets})
+
 @login_required
-=======
-from usuarios.forms import UsuarioPersonalizadoForm
-
-
->>>>>>> Stashed changes
 def cine(request):
     tickets = Tickets.objects.filter(tipo__icontains="cine")
     return render(request, 'tickets/cine.html', {'tickets': tickets})
@@ -31,13 +21,9 @@ def cine(request):
 @login_required
 def tickets(request):
     todos_los_tickets = Tickets.objects.all() 
-    return render(request, 'tickets/index.html', {'tickets': todos_los_tickets})
+    return render(request, 'tickets/todos_los_tickets.html', {'tickets': todos_los_tickets})
 
-<<<<<<< Updated upstream
 @login_required
-=======
-# @login_required
->>>>>>> Stashed changes
 def crear_metodo_pago(request):
     if request.method == 'POST':
         form = MetodoPagoForm(request.POST)
@@ -48,22 +34,14 @@ def crear_metodo_pago(request):
         form = MetodoPagoForm()
     return render(request, 'tickets/crear_metodo_pago.html', {'form': form})
 
-<<<<<<< Updated upstream
 from django.shortcuts import get_object_or_404
 
 @login_required
-=======
-# @login_required
->>>>>>> Stashed changes
 def lista_metodos_pago(request):
     metodos = MetodoPago.objects.all()
     return render(request, 'tickets/lista_metodos.html', {'metodos': metodos})
 
-<<<<<<< Updated upstream
 @login_required
-=======
-# @login_required
->>>>>>> Stashed changes
 def editar_metodo(request, id):
     metodo = get_object_or_404(MetodoPago, id=id)
     if request.method == 'POST':
@@ -75,11 +53,7 @@ def editar_metodo(request, id):
         form = MetodoPagoForm(instance=metodo) 
     return render(request, 'tickets/crear_metodo_pago.html', {'form': form})
 
-<<<<<<< Updated upstream
 @login_required
-=======
-# @login_required
->>>>>>> Stashed changes
 def borrar_metodo(request, id):
     metodo = get_object_or_404(MetodoPago, id=id)
     if request.method == 'POST':
@@ -97,9 +71,9 @@ def register_view(request):
             login(request, user)
             return redirect('cine')
 
-    # else:
+    else:
     
-        # form = RegistroForm()
+        form = RegistroForm()
 
     return render(request, 'tickets/register.html', {
         'form': form,
