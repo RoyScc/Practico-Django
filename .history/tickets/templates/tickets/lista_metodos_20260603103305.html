@@ -1,0 +1,44 @@
+{% extends 'tickets/base.html' %} {% block title%} Tickets Cine {% endblock %}
+{% block body %}
+
+<h1>Lista de metodos</h1>
+<div class="cartelera">
+{% for metodo in metodos %}
+  <div class="ticket-item" id="metodo-{{ metodo.id }}">
+
+    <h3>{{ metodo.nombre }}</h3>
+
+    <p><strong>Tipo:</strong> {{ metodo.get_tipo_display }}</p>
+
+    {% if metodo.tipo == 'BANCO' %}
+        <p><strong>Banco:</strong> {{ metodo.banco }}</p>
+        <p><strong>Tarjeta:</strong> {{ metodo.get_tarjeta_display }}</p>
+    {% endif %}
+
+    {% if metodo.tipo == 'QR' and metodo.qr %}
+        <img
+            src="{{ metodo.qr.url }}"
+            alt="QR"
+            style="max-width: 200px; margin-top:10px;"
+        >
+    {% endif %}
+
+    <br>
+
+    <a class="button" href="{% url 'editar_metodo' metodo.id %}">
+        Editar
+    </a>
+
+    <a class="button" href="{% url 'borrar_metodo' metodo.id %}">
+        Borrar
+    </a>
+
+  </div>
+  {% empty %}
+  <div class="ticket">
+    <h3>No hay metodos disponibles</h3>
+  </div>
+
+{% endfor %}
+</div>
+{% endblock %}

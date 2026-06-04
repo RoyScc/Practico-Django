@@ -6,7 +6,7 @@
     <h1>Registrar / Editar Método de Pago</h1>
     <div class="cartelera">
         <div class="ticket-item2"> 
-           <form method="POST" enctype="multipart/form-data">
+           <form method="POST">
             {% csrf_token %}
             <p>
                 {{ form.nombre.label_tag }}
@@ -46,9 +46,8 @@
         </div> 
     </div>
     <br>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
 
     const tipo = document.getElementById('id_tipo');
 

@@ -1,12 +1,10 @@
-from django.shortcuts import get_object_or_404, render, redirect
-from django.contrib.auth.forms import UserCreationForm
-
+from django.shortcuts import render, redirect
+from .models import Tickets, MetodoPago
+from .forms import MetodoPagoForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate
-from .models import Tickets, MetodoPago
-from .forms import MetodoPagoForm
 from .forms import RegistroForm
 
 # Create your views here.
@@ -21,7 +19,7 @@ def cine(request):
 @login_required
 def tickets(request):
     todos_los_tickets = Tickets.objects.all() 
-    return render(request, 'tickets/index.html', {'tickets': todos_los_tickets})
+    return render(request, 'tickets/todos_los_tickets.html', {'tickets': todos_los_tickets})
 
 @login_required
 def crear_metodo_pago(request):
@@ -37,7 +35,6 @@ def crear_metodo_pago(request):
 from django.shortcuts import get_object_or_404
 
 @login_required
-
 def lista_metodos_pago(request):
     metodos = MetodoPago.objects.all()
     return render(request, 'tickets/lista_metodos.html', {'metodos': metodos})
@@ -46,7 +43,7 @@ def lista_metodos_pago(request):
 def editar_metodo(request, id):
     metodo = get_object_or_404(MetodoPago, id=id)
     if request.method == 'POST':
-        form = MetodoPagoForm(request.POST, request.FILES, instance=metodo)
+        form = MetodoPagoForm(request.POST, instance=metodo)
         if form.is_valid():
             form.save()
             return redirect('lista_metodos') 
@@ -72,9 +69,8 @@ def register_view(request):
             login(request, user)
             return redirect('cine')
 
-    # else:
-    
-        # form = RegistroForm()
+    else:
+        form = RegistroForm()
 
     return render(request, 'tickets/register.html', {
         'form': form,

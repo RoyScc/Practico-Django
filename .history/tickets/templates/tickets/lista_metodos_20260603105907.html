@@ -9,7 +9,7 @@
 
       <h3 style="color: black;">{{ metodo.nombre }}</h3>
 
-      <p style="color: black; text-align: flex;"><strong>Tipo:</strong> {{ metodo.get_tipo_display }}</p>
+      <p style="color: black;"><strong>Tipo:</strong> {{ metodo.get_tipo_display }}</p>
 
       {% if metodo.tipo == 'EFECTIVO' %}
           <img src="{% static 'tickets/images/efectivo.svg' %}"

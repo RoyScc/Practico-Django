@@ -23,7 +23,6 @@ def register_view(request):
         "form": form,
         "hide_nav": True
     })
-    
 class RegistroForm(UserCreationForm):
     class Meta:
         model = User

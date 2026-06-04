@@ -6,7 +6,7 @@
     <h1>Registrar / Editar Método de Pago</h1>
     <div class="cartelera">
         <div class="ticket-item2"> 
-           <form method="POST" enctype="multipart/form-data">
+           <form method="POST">
             {% csrf_token %}
             <p>
                 {{ form.nombre.label_tag }}
@@ -46,35 +46,6 @@
         </div> 
     </div>
     <br>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-
-    const tipo = document.getElementById('id_tipo');
-
-    const banco = document.getElementById('banco-container');
-    const tarjeta = document.getElementById('tarjeta-container');
-    const qr = document.getElementById('qr-container');
-
-    function actualizarFormulario() {
-
-        banco.style.display = 'none';
-        tarjeta.style.display = 'none';
-        qr.style.display = 'none';
-
-        if (tipo.value === 'BANCO') {
-            banco.style.display = 'block';
-            tarjeta.style.display = 'block';
-        }
-
-        if (tipo.value === 'QR') {
-            qr.style.display = 'block';
-        }
-    }
-
-    actualizarFormulario();
-    tipo.addEventListener('change', actualizarFormulario);
-});
-</script>
+    
 
 {% endblock %}
