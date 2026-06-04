@@ -1,0 +1,54 @@
+{% extends 'tickets/base.html' %}
+
+{% block title %} Registro {% endblock %}
+
+{% block body %}
+
+<h1>Crear Cuenta</h1>
+<h4>Registrate para acceder al cine</h4>
+
+<div class="register-container">
+
+    <h3 class="h3">Registro</h3>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label>Usuario</label>
+            {{ form.username }}
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            {{ form.email }}
+        </div>
+
+        <div class="form-group">
+            <label>Contraseña</label>
+            {{ form.password1 }}
+        </div>
+
+        <div class="form-group">
+            <label>Confirmar contraseña</label>
+            {{ form.password2 }}
+        </div>
+
+        <button type="submit">
+            Registrarse
+        </button>
+
+    </form>
+
+    <p class="pcartelera">
+        ¿Ya tienes cuenta?
+        <a href="{% url 'login' %}">
+            Iniciar sesión
+        </a>
+    </p>
+
+    
+</div>
+
+{% endblock %}

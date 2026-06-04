@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'tickets/styles.css' %}">
+
+    <!-- ICONO -->
+    <link rel="icon" href="{% static 'tickets/images/cine.png' %}" type="image/png">
+
+    <title>{% block title %} Tickets {% endblock %}</title>
+</head>
+
+<body>
+
+    <nav class="navbar2">
+
+        {% if request.resolver_match.url_name == 'cine' %}
+            <a href="{% url 'lista_metodos' %}">
+                Metodos
+            </a>
+        {% endif %}
+
+        <a href="{% url 'cine' %}">
+            Cine
+        </a>
+
+        {% if request.resolver_match.url_name == 'lista_metodos' %}
+            <a href="{% url 'crear_metodo_pago' %}">
+                Crear método de pago
+            </a>
+        {% endif %}
+
+        <!-- LOGIN / LOGOUT -->
+
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}">
+                Cerrar sesión
+            </a>
+
+        {% else %}
+
+            <a href="{% url 'login' %}">
+                Login
+            </a>
+
+            <a href="{% url 'register' %}">
+                Registro
+            </a>
+
+        {% endif %}
+
+    </nav>
+
+    {% block body %}{% endblock %}
+
+</body>
+</html>

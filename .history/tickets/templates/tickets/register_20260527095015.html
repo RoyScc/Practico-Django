@@ -1,0 +1,51 @@
+{% extends 'tickets/base.html' %}
+
+{% block title %} Registro {% endblock %}
+
+{% block body %}
+
+<h1>Crear Cuenta</h1>
+<div class="register-container">
+
+    <h2 class="h3">Registro</h2>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <div class="form-group">
+            {{ form.username.label_tag }}
+            {{ form.username }}
+        </div>
+
+        <div class="form-group">
+            {{ form.password1.label_tag }}
+            {{ form.password1 }}
+        </div>
+
+        <div class="form-group">
+            {{ form.password2.label_tag }}
+            {{ form.password2 }}
+        </div>
+        if form.errors:
+            <div class="error">
+                {{ form.errors }}
+            </div>
+
+        <button type="submit">
+            Registrarse
+        </button>
+
+    </form>
+
+    <p class="pcartelera">
+        ¿Ya tienes cuenta?
+        <a href="{% url 'login' %}">
+            Iniciar sesión
+        </a>
+    </p>
+
+    
+</div>
+
+{% endblock %}
